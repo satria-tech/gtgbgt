@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Belanja</title>
+</head>
+<body>
+    <div>
+        Barang :
+        <select id="listbarang">
+            <option value="Buku" selected>Buku</option>
+            <option value="Tas" selected>Tas</option>
+            <option value="Pensil" selected>Pensil</option>
+            <option value="Penghapus" selected>Penghapus</option>
+        </select>
+        <button id="tambah" onclick="Cek_barang()">(+)</button>
+    </div>
+    <div>
+        Jumlah :
+        <input type="text" id="Jumlah">
+    </div>
+    <div id="barang"></div>
+    <div id="total"></div>
+   <script>
+    var harga;
+    var nama_barang;
+    var ket ="";
+    var jumlah=0;
+    var total=0;
+    var subtotal=0;
+
+    function Cek_barang() {
+        var nama = document.getElementByid("listbarang").value;
+        switch(nama){
+            case'Buku':
+              harga = 10000;
+              nama_barang = "Buku";
+              break;
+            case'Tas':
+              harga = 50000;
+              nama_barang = "Tas"
+              break;
+            case'Pensil':
+              harga = 5000;
+              nama_barang = "pensil"
+              break;
+             case'Penghapus':
+              harga = 15000;
+              nama_barang = "Penghapus"
+              break;   
+        }
+        jumlah = parseInt (document.getElementById("Jumlah".value));
+        subtotal = jumlah * harga;
+        total = total + subtotal;
+        ket = ket + nama_barang + ":"+ jumlah + "=" +subtotal+"<br>";
+        document.getElementById("barang").innerHTML = ket;
+        document.getElementById("total").innerHTML = "Total Belanja =" + total;
+    }
+   </script> 
+</body>
+</html>
